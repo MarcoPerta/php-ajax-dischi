@@ -1,7 +1,9 @@
 var app = new Vue({
     el: '#app',
     data: {
-        arrayDischi : []
+        arrayDischi : [],
+        arrayGeneri : [],
+        selectGenere: ''
     },
     mounted() {
         axios.get('./api/index.php')
@@ -9,6 +11,17 @@ var app = new Vue({
 
           this.arrayDischi = res.data
           console.log(this.arrayDischi)
+
+          this.arrayDischi.forEach((elem) => {
+
+            console.log(elem)
+  
+            //condizione
+            if (!this.arrayGeneri.includes(elem.genre)) {
+              this.arrayGeneri.push(elem.genre);
+            }
+  
+          })
   
         })
       
@@ -17,6 +30,11 @@ var app = new Vue({
   
     },
     methods: {
-
+        ricercaProdotti() {
+            axios.get(`./api/index.php?genre=${this.selectGenere}`)
+            .then((res) => {
+              this.arrayDischi = res.data
+            })
+          }
     }
   })

@@ -25,8 +25,8 @@
         </li>
       </ul>
 
-      <select name="" id="">
-        <option value=""></option>
+      <select name="" id="" v-model="selectGenere" @change="ricercaProdotti()">
+        <option :value="elem" v-for="(elem, index) in arrayGeneri">{{ elem }}</option>
       </select>
 
       <div class="container">
