@@ -19,6 +19,31 @@
 <body>
   <div id='app'>
 
+      <ul>
+        <li v-for="(elem, index) in arrayDischi" :key="index">
+            {{ elem.title }}
+        </li>
+      </ul>
+
+      <select name="" id="">
+        <option value=""></option>
+      </select>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-4 g-4" v-for="(elem, index) in arrayDischi" :key="index">
+            <div class="card" style="width: 18rem;" >
+              <img :src="elem.poster" class="card-img-top" :alt="elem.titolo">
+              <div class="card-body">
+                <h5 class="card-title">{{ elem.title }}</h5>
+                <p class="card-text">
+                  {{ elem.genre }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
   </div>
 
