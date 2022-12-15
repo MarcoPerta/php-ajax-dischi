@@ -1,12 +1,12 @@
 <?php 
 include_once __DIR__ . '/../db/index.php';
 
-$arrayDischi = [];
+$arrayDischi = $database;
 
-foreach($database as $elem){
+// foreach($database as $elem){
 
-    $arrayDischi[] = $elem ;
-}
+//     $arrayDischi[] = $elem ;
+// }
 
 header('Content-type: application/json');
 
